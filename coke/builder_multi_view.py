@@ -34,7 +34,7 @@ class CoKe(nn.Module):
         self.duals = []
         self.counters = []
         for i in range(0, self.num_head):
-            centers = F.normalize(torch.randn(dim, self.K[i]), p=2, dim=0)
+            centers = F.normalize(torch.randn(dim, self.K[i]), dim=0)
             self.register_buffer("pre_center_" + str(i), centers.clone())
             self.register_buffer("cur_center_" + str(i), centers.clone())
             self.register_buffer("dual_" + str(i), torch.zeros(self.K[i]))
@@ -78,7 +78,7 @@ class CoKe(nn.Module):
         alpha = alpha / self.counters[branch][label_idx].float()
         self.cur_centers[branch][:, label_idx] = self.cur_centers[branch][:, label_idx] * alpha
         self.cur_centers[branch].index_add_(1, labels, feats.data.T * (1. / self.counters[branch][labels]))
-        self.cur_centers[branch][:, label_idx] = F.normalize(self.cur_centers[branch][:, label_idx], p=2, dim=0)
+        self.cur_centers[branch][:, label_idx] = F.normalize(self.cur_centers[branch][:, label_idx], dim=0)
 
     def forward(self, view1, view2, sview, target, epoch):
         x1 = self.encoder(view1)
