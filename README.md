@@ -21,6 +21,13 @@ CoKe with multi-view
 sh run_multi_view.sh
 ```
 
+Linear evaluation on ImageNet
+```
+sh run_lincls.sh 0.2 coke_single_view.pth.tar
+```
+```
+sh run_lincls.sh 0.4 coke_multi_view.pth.tar
+```
 
 ## Models:
 
