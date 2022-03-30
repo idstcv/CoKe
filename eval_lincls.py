@@ -65,7 +65,7 @@ parser.add_argument('--momentum', default=0.9, type=float, metavar='M',
 parser.add_argument('--wd', '--weight-decay', default=1e-6, type=float,
                     metavar='W', help='weight decay (default: 1e-6)',
                     dest='weight_decay')
-parser.add_argument('-p', '--print-freq', default=600, type=int,
+parser.add_argument('-p', '--print-freq', default=10, type=int,
                     metavar='N', help='print frequency (default: 10)')
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
