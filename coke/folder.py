@@ -53,7 +53,7 @@ def make_dataset(dir, class_to_idx, extensions):
                     path_index[path] = len(path_index)
                     images.append(item)
 
-        return images
+    return images
 
 class DatasetFolder(data.Dataset):
     """A generic data loader where the samples are arranged in this way: ::
